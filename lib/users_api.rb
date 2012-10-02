@@ -1,3 +1,4 @@
+require "net/http"
 require "users_api/version"
 require "users_api/configuration"
 require "users_api/sinatra"
