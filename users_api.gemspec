@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "users_api"
   gem.require_paths = ["lib"]
   gem.version       = UsersApi::VERSION
+
+  gem.add_dependency "sinatra-contrib"
 end

@@ -1,39 +1,10 @@
 require "users_api/version"
-require "ostruct"
+require "users_api/configuration"
+require "users_api/sinatra"
+require "users_api/base"
 
 module UsersApi
-  class Base
-    def self.get_login_url
-      url = URI.parse(USERS_ENDPOINT)
-      res = Net::HTTP.start(url.host, url.port) do |http|
-        http.get('/')
-      end
-
-      raise if res.code != "302"
-      res['location']
-    end
-
-    def initialize(token)
-      @token = token
-    end
-
-    def myself
-      request '/myself'
-    end
-
-    private
-
-    def request(path)
-      url = URI.parse("#{USERS_ENDPOINT}/#{path}")
-      res = Net::HTTP.start(url.host, url.port) do |http|
-        http.get("#{path}?token=#@token")
-      end
-
-      if res.code == "302"
-        res['location']
-      else
-        OpenStruct.new(res.body)
-      end
-    end
+  def self.configure
+    yield Configuration.instance
   end
 end
