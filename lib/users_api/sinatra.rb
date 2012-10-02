@@ -9,13 +9,6 @@ module UsersApi
         session_key = Configuration.instance.session_key
         session[session_key] && UsersApi::Base.new(session[session_key]).myself
       end
-
-      # TODO: make this configurable
-      def login_path?(path)
-        path =~ /\/login/ ||
-          path =~ /\/online/||
-          path =~ /\/api/
-      end
     end
 
     before do
@@ -31,7 +24,7 @@ module UsersApi
           session.delete(redirect_param)
           redirect page
         end
-      elsif !login_path? request.path_info
+      else
         session[redirect_param] = request.path_info
         redirect "#{UsersApi::Base.get_login_url}?postback=#{Configuration.instance.host}#{request.path_info}"
       end
