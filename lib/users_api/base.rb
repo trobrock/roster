@@ -23,7 +23,7 @@ module UsersApi
     private
 
     def request(path)
-      url = URI.parse("#{USERS_ENDPOINT}/#{path}")
+      url = URI.parse("#{Configuration.instance.endpoint}/#{path}")
       res = Net::HTTP.start(url.host, url.port) do |http|
         http.get("#{path}?token=#@token")
       end
