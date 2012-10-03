@@ -4,9 +4,9 @@ require File.expand_path('../lib/roster/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Trae Robrock"]
   gem.email         = ["trobrock@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{api client for interacting with dugout}
+  gem.summary       = %q{enable authentication on your app to anyone in your organization using dugout}
+  gem.homepage      = "https://github.com/trobrock/roster"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
