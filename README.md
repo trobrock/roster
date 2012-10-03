@@ -1,12 +1,13 @@
-# UsersApi
+# Roster
+[![Dependency Status](https://gemnasium.com/trobrock/roster.png)](https://gemnasium.com/trobrock/roster)
 
-TODO: Write a gem description
+A simple api client and Sinatra plugin for interacting with [Dugout](https://github.com/trobrock/dugout)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'users_api'
+    gem 'roster'
 
 And then execute:
 
@@ -14,11 +15,27 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install users_api
+    $ gem install roster
 
 ## Usage
 
-TODO: Write usage instructions here
+### Sinatra
+
+```ruby
+Roster.configure do |config|
+  config.host = HOST
+  config.endpoint = USERS_ENDPOINT
+end
+
+class MyApp < Sinatra::Base
+  register Roster::Sinatra
+  
+  get '/' do
+    puts "You are now authenticated as: #{current_user.login}"
+  end
+end
+```
+
 
 ## Contributing
 
