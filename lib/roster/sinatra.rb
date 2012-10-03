@@ -1,13 +1,13 @@
 require "sinatra/extension"
 
-module UsersApi
+module Roster
   module Sinatra
     extend ::Sinatra::Extension
 
     module Helpers
       def current_user
         session_key = Configuration.instance.session_key
-        session[session_key] && UsersApi::Base.new(session[session_key]).myself
+        session[session_key] && Roster::Base.new(session[session_key]).myself
       end
     end
 
@@ -26,10 +26,10 @@ module UsersApi
         end
       else
         session[redirect_param] = request.path_info
-        redirect "#{UsersApi::Base.get_login_url}?postback=#{Configuration.instance.host}#{request.path_info}"
+        redirect "#{Roster::Base.get_login_url}?postback=#{Configuration.instance.host}#{request.path_info}"
       end
     end
 
-    helpers UsersApi::Sinatra::Helpers
+    helpers Roster::Sinatra::Helpers
   end
 end

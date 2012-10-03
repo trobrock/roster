@@ -1,4 +1,4 @@
-module UsersApi
+module Roster
   class Configuration
     include Singleton
 

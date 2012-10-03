@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/users_api/version', __FILE__)
+require File.expand_path('../lib/roster/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Trae Robrock"]
@@ -11,9 +11,11 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "users_api"
+  gem.name          = "roster"
   gem.require_paths = ["lib"]
-  gem.version       = UsersApi::VERSION
+  gem.version       = Roster::VERSION
 
   gem.add_dependency "sinatra-contrib"
+
+  gem.add_development_dependency "rake"
 end

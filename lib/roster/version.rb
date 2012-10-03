@@ -1,3 +1,3 @@
-module UsersApi
+module Roster
   VERSION = "0.0.1"
 end

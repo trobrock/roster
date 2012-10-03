@@ -1,6 +1,6 @@
 require "ostruct"
 
-module UsersApi
+module Roster
   class Base
     def self.get_login_url
       url = URI.parse(Configuration.instance.endpoint)
