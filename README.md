@@ -23,8 +23,8 @@ Or install it yourself as:
 
 ```ruby
 Roster.configure do |config|
-  config.host = HOST
-  config.endpoint = USERS_ENDPOINT
+  config.host     = THIS_APPS_HOST
+  config.endpoint = DUGOUT_URL
 end
 
 class MyApp < Sinatra::Base
